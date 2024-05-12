@@ -24,6 +24,7 @@
             <a id="forgotPassword" href="https://www.example.com" target="_blank">Forgot Password?</a>
         </div>
         <input type="password" id="password" name="password" required>
+        <p id="password-incorrect-message"></p>
     </div>
 
     <button type="button" id="loginButton" onclick="validateLogin()">Sign in</button>
@@ -37,13 +38,14 @@
 <form id="signupForm">
     <div id="signupInputs">
         <label for="signupEmail">Email</label>
-        <input type="text" id="signupEmail" name="signupEmail" required>
+        <input type="email" id="signupEmail" name="signupEmail" required>
         <label for="signupUsername">Username</label>
         <input type="text" id="signupUsername" name="signupUsername" required>
         <label for="signupPassword">Password</label>  
         <input type="password" id="signupPassword" name="signupPassword" required>
         <label for="signupConfirmPassword">Confirm Password</label>  
         <input type="password" id="signupConfirmPassword" name="signupConfirmPassword" required>
+        <p id="password-strength-message"></p>
     </div>
     <button type="button" id="signupButton" onclick="signup()">Register</button>
     <div id="signingin">

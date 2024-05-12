@@ -39,5 +39,26 @@ app.post('/api/customers', async (req, res) => {
     }
   });
 
+// Define GET route to get all usernames and passwords
+app.get('/api/customers', async (req, res) => {
+  try {
+    // Query the database to retrieve all customers
+    const customers = await Customer.find({}, 'userName password');
+
+    // Extract usernames and passwords
+    const userData = customers.map(customer => ({
+      userName: customer.userName,
+      password: customer.password
+    }));
+
+    // Send the usernames and passwords as JSON response
+    res.status(200).json(userData);
+  } catch (error) {
+    // Handle errors
+    res.status(500).json({ error: error.message });
+  }
+});
+
+
 
 app.listen(3000, ()=> console.log(('server started')))
