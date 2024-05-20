@@ -135,7 +135,7 @@ body {
 }
 
 .toggle-input:checked + .toggle-label {
-  background-color: #86d993;
+  background-color: #FFC72C;
 }
 
 .toggle-input:checked + .toggle-label:before {

@@ -126,11 +126,11 @@ app.post('/api/restaurants', async (req, res) => {
 // Define GET route to get all usernames and passwords
 app.get('/api/restaurants', async (req, res) => {
 try {
-  // Query the database to retrieve all marts
+  // Query the database to retrieve all restaurants
   const restaurants = await Restaurant.find({}, 'userName password');
 
   // Extract usernames and passwords
-  const userData = restaurants.map(mart => ({
+  const userData = restaurants.map(restaurant => ({
     userName: restaurant.userName,
     password: restaurant.password
   }));

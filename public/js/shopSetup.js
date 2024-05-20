@@ -71,6 +71,14 @@ async function signup(){
     } catch (error) {
       console.error('Error:', error.message);
     }
+
+    if (password!=confirmPassword){
+      window.alert("Passwords don't match.")
+      return;
+    }
+    if (!checkPasswordStrength(password)){
+      return;
+    }
     
     // verify_email();
     const userData = {
@@ -93,5 +101,4 @@ async function signup(){
         console.error('Error:', error);
       }
     alert('Your account has been successfully create!');
-    showLoginForm()
 }

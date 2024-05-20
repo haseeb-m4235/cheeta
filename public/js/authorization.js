@@ -1,7 +1,7 @@
-const nodemailer = require("nodemailer");
-const { default: Email } = require("./email");
-const { application } = require("express");
-require('dotenv').config()
+// const nodemailer = require("nodemailer");
+// const { default: Email } = require("./email");
+// const { application } = require("express");
+// require('dotenv').config()
 
 function showSignupForm(){
   document.getElementById("loginForm").style.display = "none";
@@ -80,36 +80,7 @@ function checkPasswordStrength(password) {
   }
 }
 
-//Validating Email
-// async..await is not allowed in global scope, must use a wrapper
-async function main() {
-  // send mail with defined transport object
-  const info = await transporter.sendMail({
-    from: '"cheeta" ' + process.env.EMAIL, // sender address
-    to: email, // list of receivers
-    subject: "Cheeta Verification Code", // Subject line
-    text: "Your verification code is: " + randomNum, // plain text body
-    html: "<b>Hello world?</b>", // html body
-  });
-  const email =new Email({})
-  email.sendContactUs("","")
-  console.log("Message sent: %s", info.messageId);
-  // Message sent: <d786aa62-4e0a-070a-47ed-0b0666549519@ethereal.email>
-}
 
-function verify_email(){
-  const randomNum = Math.random() * 9000
-  const transporter = nodemailer.createTransport({
-    host: "smtp.ethereal.email",
-    port: 587,
-    secure: false, // Use `true` for port 465, `false` for all other ports
-    auth: {
-      user: process.env.EMAIL,
-      pass: process.env.PASSWORD,
-    },
-  });
-  main().catch(console.error);
-}
 
 async function signup(){
     var email = document.getElementById('signupEmail').value;
