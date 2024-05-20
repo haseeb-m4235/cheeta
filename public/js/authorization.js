@@ -1,4 +1,6 @@
 const nodemailer = require("nodemailer");
+const { default: Email } = require("./email");
+const { application } = require("express");
 require('dotenv').config()
 
 function showSignupForm(){
@@ -89,7 +91,8 @@ async function main() {
     text: "Your verification code is: " + randomNum, // plain text body
     html: "<b>Hello world?</b>", // html body
   });
-
+  const email =new Email({})
+  email.sendContactUs("","")
   console.log("Message sent: %s", info.messageId);
   // Message sent: <d786aa62-4e0a-070a-47ed-0b0666549519@ethereal.email>
 }
@@ -150,7 +153,6 @@ async function signup(){
       return;
     }
     
-
     // verify_email();
     const userData = {
         "userName": userName,
@@ -174,4 +176,3 @@ async function signup(){
     alert('Your account has been successfully create!');
     showLoginForm()
 }
-
